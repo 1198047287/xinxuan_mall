@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Map;
 
 
+import com.baize.mall.member.feign.CouponFeign;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -30,6 +31,15 @@ import com.baize.common.utils.R;
 public class MemberController {
     @Autowired
     private MemberService memberService;
+    @Autowired
+    CouponFeign couponFeign;
+    @RequestMapping("/coupons")
+    public R coupons(){
+        MemberEntity member = new MemberEntity();
+        member.setNickname("baize");
+        R r = couponFeign.memeberList();
+        return R.ok().put("memeber",member).put("coupons",r.get("coupons"));
+    }
 
     /**
      * 列表
