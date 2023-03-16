@@ -4,7 +4,10 @@ import java.util.Arrays;
 import java.util.Map;
 
 
+import com.alibaba.nacos.api.config.annotation.NacosValue;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,11 +28,14 @@ import com.baize.common.utils.R;
  * @email baize@gmail.com
  * @date 2023-03-16 09:30:25
  */
+@RefreshScope
 @RestController
 @RequestMapping("coupon/coupon")
 public class CouponController {
     @Autowired
     private CouponService couponService;
+
+
 
     @RequestMapping("/memeber/list")
     public R memeberList(){
