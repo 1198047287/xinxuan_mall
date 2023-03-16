@@ -22,6 +22,7 @@
         <module>xinxuan-ware</module>
         <module>xinxuan-order</module>
         <module>renren-fast</module>
+        <module>renren-generator</module>
     </modules>
 
 </project>
